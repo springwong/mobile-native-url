@@ -49,6 +49,9 @@ public class UrlBuilder {
     }
     
     public func searchParamsAdd(_ key: String, _ value: String?) -> UrlBuilder {
+        if _url.queryItems == nil {
+            _url.queryItems = []
+        }
         _url.queryItems?.append(URLQueryItem(name: key, value: value))
         return self
     }

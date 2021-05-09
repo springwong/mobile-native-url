@@ -29,7 +29,7 @@ public extension URL {
         
     var _pathname: String { get { return self.path.isEmpty ? "/" : self.path } }
     
-    var _search: String { get { return self.query ?? "" } }
+    var _search: String { get { return self.query != nil ? "?\(self.query!)" : "" } }
     
     var _hash: String { get { return self.fragment != nil ? "#\(self.fragment!)" : "" } }
     
@@ -43,6 +43,12 @@ public extension URL {
         }
         return self.absoluteString
     } }
+    
+    func searchParamsGet(_ key: String) -> String? {
+        return edit()._url.queryItems?.first(where: { item in
+            item.name == key
+        })?.value
+    }
     
     func edit() -> UrlBuilder {
         return UrlBuilder(self)

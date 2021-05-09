@@ -12,6 +12,7 @@ test('WHATWG URL standard - query test', () => {
     expect(testUrl.search).toBe('?space=hello+world&and=%26');
     expect(testUrl.searchParams.get('space')).toBe('hello world');
     expect(testUrl.searchParams.get('and')).toBe('&');
+    expect(testUrl.searchParams.get('notExist')).toBe(null);
 });
 
 test('WHATWG URL standard - query redirect url', () => {
