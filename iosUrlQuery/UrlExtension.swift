@@ -27,13 +27,22 @@ public extension URL {
         }
     }
         
-    var _pathname: String { get { return self.path } }
+    var _pathname: String { get { return self.path.isEmpty ? "/" : self.path } }
     
     var _search: String { get { return self.query ?? "" } }
     
     var _hash: String { get { return self.fragment != nil ? "#\(self.fragment!)" : "" } }
     
-    var _href: String { get { return self.absoluteString } }
+    var _href: String { get {
+        let queries = self.absoluteString.components(separatedBy: "?")
+        if let query = queries.last, let url = queries.first, self.path.isEmpty {
+            if queries.count > 1 {
+                return "\(url)/?\(query)"
+            }
+            return "\(url)/"
+        }
+        return self.absoluteString
+    } }
     
     func edit() -> UrlBuilder {
         return UrlBuilder(self)
