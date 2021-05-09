@@ -1,5 +1,3 @@
-const url = require('url');
-
 test('WHATWG URL standard - auth url', () => {
     const testUrl = new URL('https://user:pass@sub.example.com:8080/p/a/t/h?query=string#hash');
     expect(testUrl.protocol).toBe('https:');
@@ -28,6 +26,7 @@ test('WHATWG URL standard - host:port', () => {
     expect(testUrl.search).toBe('?query=string');
     expect(testUrl.searchParams.get('query')).toBe('string');
     expect(testUrl.hash).toBe('#hash');
+    expect(testUrl.href).toBe('https://sub.example.com:8080/p/a/t/h?query=string#hash');
 });
 
 test('WHATWG URL standard - host', () => {
@@ -43,6 +42,7 @@ test('WHATWG URL standard - host', () => {
     expect(testUrl.search).toBe('?query=string');
     expect(testUrl.searchParams.get('query')).toBe('string');
     expect(testUrl.hash).toBe('#hash');
+    expect(testUrl.href).toBe('https://sub.example.com/p/a/t/h?query=string#hash');
 });
 
 test('WHATWG URL standard - host no hash', () => {
@@ -58,6 +58,7 @@ test('WHATWG URL standard - host no hash', () => {
     expect(testUrl.search).toBe('?query=string');
     expect(testUrl.searchParams.get('query')).toBe('string');
     expect(testUrl.hash).toBe('');
+    expect(testUrl.href).toBe('https://sub.example.com/p/a/t/h?query=string');
 });
 
 test('WHATWG URL standard - host domain only', () => {
@@ -73,6 +74,7 @@ test('WHATWG URL standard - host domain only', () => {
     expect(testUrl.search).toBe('?query=string');
     expect(testUrl.searchParams.get('query')).toBe('string');
     expect(testUrl.hash).toBe('');
+    expect(testUrl.href).toBe('https://sub.example.com/?query=string');
 });
 
 test('WHATWG URL standard - host no query', () => {
@@ -88,4 +90,5 @@ test('WHATWG URL standard - host no query', () => {
     expect(testUrl.search).toBe('');
     expect(testUrl.searchParams.get('query')).toBe(null);
     expect(testUrl.hash).toBe('');
+    expect(testUrl.href).toBe('https://sub.example.com/');
 });
