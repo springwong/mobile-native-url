@@ -13,6 +13,21 @@ test('WHATWG URL standard - auth url', () => {
     expect(testUrl.hash).toBe('#hash');
 });
 
+test('WHATWG URL standard - auth no password', () => {
+    const testUrl = new URL('https://user@sub.example.com:8080/p/a/t/h?query=string#hash');
+    expect(testUrl.protocol).toBe('https:');
+    expect(testUrl.username).toBe('user');
+    expect(testUrl.password).toBe('');
+    expect(testUrl.host).toBe('sub.example.com:8080');
+    expect(testUrl.hostname).toBe('sub.example.com');
+    expect(testUrl.port).toBe('8080');
+    expect(testUrl.origin).toBe('https://sub.example.com:8080');
+    expect(testUrl.pathname).toBe('/p/a/t/h');
+    expect(testUrl.search).toBe('?query=string');
+    expect(testUrl.searchParams.get('query')).toBe('string');
+    expect(testUrl.hash).toBe('#hash');
+});
+
 test('WHATWG URL standard - host:port', () => {
     const testUrl = new URL('https://sub.example.com:8080/p/a/t/h?query=string#hash');
     expect(testUrl.protocol).toBe('https:');
