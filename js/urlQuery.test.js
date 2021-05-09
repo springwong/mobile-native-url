@@ -23,3 +23,8 @@ test('WHATWG URL standard - query redirect url', () => {
     expect(testUrl.searchParams.get('redirectUrl')).toBe('https://www.apple.com.hk?space=hello+world&and=%26');
     expect(testUrl.href).toBe('https://www.google.com/?redirectUrl=https%3A%2F%2Fwww.apple.com.hk%3Fspace%3Dhello%2Bworld%26and%3D%2526');
 });
+
+test('Decode URL', () => {
+    const decodedUrl = decodeURIComponent("https://www.apple.com.hk?space=hello+world&and=%26").replace( /\+/g, ' ' )
+    expect(decodedUrl).toBe('https://www.apple.com.hk?space=hello world&and=&');
+});

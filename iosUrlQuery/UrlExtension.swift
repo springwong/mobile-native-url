@@ -34,13 +34,6 @@ public extension URL {
     var _hash: String { get { return self.fragment != nil ? "#\(self.fragment!)" : "" } }
     
     var _href: String { get {
-        let queries = self.absoluteString.components(separatedBy: "?")
-        if let query = queries.last, let url = queries.first, self.path.isEmpty {
-            if queries.count > 1 {
-                return "\(url)/?\(query)"
-            }
-            return "\(url)/"
-        }
         return self.absoluteString
     } }
     

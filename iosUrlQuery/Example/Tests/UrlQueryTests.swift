@@ -26,7 +26,7 @@ class UrlQueryTests: XCTestCase {
         let builder = UrlBuilder("https://www.google.com")
         let _url = builder.build()!
         XCTAssertEqual(_url._host, "www.google.com")
-        XCTAssertEqual(_url._href, "https://www.google.com/")
+        XCTAssertEqual(_url._href, "https://www.google.com")
     }
     
     func testQuery() throws {
@@ -54,9 +54,17 @@ class UrlQueryTests: XCTestCase {
             .searchParamsAdd("redirectUrl", "https://www.apple.com.hk?space=hello+world&and=%26")
             .build()!
         XCTAssertEqual(_url._host, "www.google.com")
-//        XCTAssertEqual(_url._search, "?redirectUrl=https%3A%2F%2Fwww.apple.com.hk%3Fspace%3Dhello%2Bworld%26and%3D%2526")
+        XCTAssertEqual(_url._search, "?redirectUrl=https://www.apple.com.hk?space%3Dhello+world%26and%3D%2526")
         XCTAssertEqual(_url.searchParamsGet("redirectUrl"), "https://www.apple.com.hk?space=hello+world&and=%26")
-        XCTAssertEqual(_url._href, "https://www.google.com/?redirectUrl=https%3A%2F%2Fwww.apple.com.hk%3Fspace%3Dhello%2Bworld%26and%3D%2526")
+        XCTAssertEqual(_url._href, "https://www.google.com?redirectUrl=https://www.apple.com.hk?space%3Dhello+world%26and%3D%2526")
+    }
+    
+    func testDecodeUrl() throws {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let url = "https://www.apple.com.hk?space=hello+world&and=%26"
+        XCTAssertEqual(url.removingPercentEncoding?.replacingOccurrences(of: "+", with: " "), "https://www.apple.com.hk?space=hello world&and=&")
     }
 
     func testPerformanceExample() throws {

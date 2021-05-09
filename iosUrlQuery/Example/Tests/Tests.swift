@@ -100,7 +100,7 @@ class Tests: XCTestCase {
         XCTAssertEqual(_url._search, "?query=string")
         XCTAssertEqual(_url._hash, "")
         XCTAssertEqual(_url._origin, "https://sub.example.com")
-        XCTAssertEqual(_url._href, "https://sub.example.com/?query=string")
+        XCTAssertEqual(_url._href, "https://sub.example.com?query=string")
     }
     
     func testHostNoQuery() {
@@ -118,7 +118,7 @@ class Tests: XCTestCase {
         XCTAssertEqual(_url._search, "")
         XCTAssertEqual(_url._hash, "")
         XCTAssertEqual(_url._origin, "https://sub.example.com")
-        XCTAssertEqual(_url._href, "https://sub.example.com/")
+        XCTAssertEqual(_url._href, "https://sub.example.com")
     }
     
     func testPerformanceExample() {
