@@ -1,0 +1,6 @@
+framework module iosUrlQuery {
+  umbrella header "iosUrlQuery-umbrella.h"
+
+  export *
+  module * { export * }
+}

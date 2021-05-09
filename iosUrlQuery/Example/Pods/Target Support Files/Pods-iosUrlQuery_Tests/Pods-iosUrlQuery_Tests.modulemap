@@ -1,0 +1,6 @@
+framework module Pods_iosUrlQuery_Tests {
+  umbrella header "Pods-iosUrlQuery_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

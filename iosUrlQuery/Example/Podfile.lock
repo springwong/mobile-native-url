@@ -1,0 +1,16 @@
+PODS:
+  - iosUrlQuery (0.1.0)
+
+DEPENDENCIES:
+  - iosUrlQuery (from `../`)
+
+EXTERNAL SOURCES:
+  iosUrlQuery:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  iosUrlQuery: a77ffa55ed503ec4044ed88240813e1fe10f7310
+
+PODFILE CHECKSUM: 601678deee221d7fddf1ae23db581e2cbbc11776
+
+COCOAPODS: 1.10.1

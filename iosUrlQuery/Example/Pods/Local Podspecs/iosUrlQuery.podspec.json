@@ -1,0 +1,22 @@
+{
+  "name": "iosUrlQuery",
+  "version": "0.1.0",
+  "summary": "A short description of iosUrlQuery.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Spring/iosUrlQuery",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Spring": "development.spring@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Spring/iosUrlQuery.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "iosUrlQuery/Classes/**/*"
+}
